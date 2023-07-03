@@ -6,7 +6,9 @@
 
 .watch .back{
     display: flex;
+    width: 10%;
     align-items: center;
+    justify-content: space-between;
     color: white;
     cursor: pointer;
     position: absolute;

@@ -1,12 +1,35 @@
 import { PlayArrow, InfoOutlined } from "@mui/icons-material";
 import "./featured.css";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const Featured = ({type}) => {
+    const [content, setContent] = useState({});
+
+    useEffect(() => {
+        const getRandomContent = async () => {
+            try{
+                const res = await axios.get(`http://localhost:8000/api/movies/random?type=${type}`,
+                {
+                    headers: {
+                        token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTAwZjdlNjdjZDU1Mjg1ZjJjOGM1OSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4ODM4MDMyMywiZXhwIjoxNjg4ODEyMzIzfQ.020Is-sHgyvtNBcY6uziCX7SWQswgWuxHXkvQh4zf3k"
+                    }
+                }
+                )
+                setContent(res.data[0]);
+            }
+            catch(err){
+                console.log(err);
+            }
+        }
+        getRandomContent();
+    }, [type])
+
     return(
         <div className="featured">
             {type && (
                     <div className="category">
-                        <span>{type==="movie" ? "Movie" : "Series"}</span>
+                        <span>{type==="movie" ? "Movies" : "Series"}</span>
                         <select name="genre" id="genre">
                             <option>Genre</option>
                             <option value="adventure">Adventure</option>
@@ -25,11 +48,11 @@ const Featured = ({type}) => {
                     </div>
                 )
             }
-            <img src="https://timelinecovers.pro/facebook-cover/download/tv-show-sherlock-facebook-cover.jpg" alt="" />
+            <img src={content.img} alt="" />
             <div className="info">
                 {/* <img src="https://timelinecovers.pro/facebook-cover/download/tv-show-sherlock-facebook-cover.jpg" alt="" /> */}
                 <span className="description">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, aliquam laboriosam aspernatur delectus fuga esse at optio beatae doloribus voluptates?
+                    {content.description}
                 </span>
                 <div className="buttons">
                     <button className="play">
