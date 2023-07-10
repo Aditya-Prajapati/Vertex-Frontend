@@ -15,7 +15,7 @@ const ListItem = ({ index, item }) => {
                 const res = await axios.get(`http://localhost:8000/api/movies/find/${item}`,
                     {
                         headers: {
-                            token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTAwZjdlNjdjZDU1Mjg1ZjJjOGM1OSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4ODI5NTQxNSwiZXhwIjoxNjg4NzI3NDE1fQ.iw6_45kCiCefMu_n_kt1kUGfklcMwLtvapQeX5H-bWQ"
+                            token: `Bearer ${JSON.parse(localStorage.getItem("user")).accessToken}`
                         }
                     }
                 )
@@ -27,6 +27,8 @@ const ListItem = ({ index, item }) => {
         }
         getMovie();
     }, [item])
+
+    if (!movie || Object.keys(movie).length === 0) return <div>Loading...</div>;
 
     return (
         <Link to="/watch" state={{movie: movie}}>

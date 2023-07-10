@@ -12,6 +12,10 @@
     justify-content: space-between;
 }
 
+.register .top .wrapper a{
+    cursor: pointer;
+}
+
 .register .top .wrapper .loginButton{
     color: white;
     background-color: red;

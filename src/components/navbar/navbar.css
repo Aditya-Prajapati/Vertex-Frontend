@@ -64,3 +64,19 @@
     flex-direction: column;
     position: absolute;
 }
+
+@media (max-width: 870px){
+    .navbar .container .left span{
+        display: none;
+    }
+
+    .navbar .container .left span.navbarMainLinks{
+        display: block;
+    }    
+}
+
+@media (max-width: 500px){
+    .navbar .container .left .logo{
+        display: none;
+    }
+}

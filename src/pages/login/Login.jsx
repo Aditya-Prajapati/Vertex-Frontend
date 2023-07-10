@@ -1,6 +1,18 @@
+import { useContext, useState } from "react";
 import "./login.css";
+import { Link } from "react-router-dom";
+import { login } from "../../context/authContext/apiCalls";
+import { AuthContext } from "../../context/authContext/AuthContext";
 
 const Login = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const { dispatch } = useContext(AuthContext);
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        login({ email, password }, dispatch)
+    }
 
     return (
         <div className="login">
@@ -12,10 +24,10 @@ const Login = () => {
             <div className="container">
                 <form>
                     <h1>Sign In</h1>
-                    <input type="email" placeholder="Email or phone number" />
-                    <input type="password" placeholder="Password" />
-                    <button className="loginButton">Submit</button>
-                    <span>New to Netflix? <strong>Sign up now.</strong></span>
+                    <input type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} />
+                    <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+                    <button className="loginButton" onClick={handleLogin}>Submit</button>
+                    <span>New to Netflix? <Link to="/register"> <strong>Sign up now.</strong> </Link> </span>
                 </form>
             </div>
         </div>

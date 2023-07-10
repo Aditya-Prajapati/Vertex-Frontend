@@ -70,3 +70,19 @@
 .featured .info .buttons span{
     margin-left: 5px;
 }
+
+@media (max-width: 870px){
+    .navbar .container .left span.navbarMainLinks{
+        display: block;
+    }    
+}
+
+@media (max-width: 500px){
+    .featured .info .img{
+        width: 60vw;
+    }
+
+    .featured .info .description{
+        width: 60vw;
+    }
+}

@@ -3,12 +3,16 @@ import "./featured.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const Featured = ({type}) => {
+const Featured = ({ type, setGenre }) => {
     const [content, setContent] = useState({});
+    const [poster, setPoster] = useState(null);
 
     useEffect(() => {
         const getRandomContent = async () => {
             try{
+                await axios.get("https://api.themoviedb.org/3/discover/movie?api_key=14e045010471145c477118e0503fb18b&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.deschttps://api.themoviedb.org/3/discover/movie?api_key=14e045010471145c477118e0503fb18b&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc").then((res) => {
+                    setPoster(`http://image.tmdb.org/t/p/original${res.data.results[3].backdrop_path}`);
+                })
                 const res = await axios.get(`http://localhost:8000/api/movies/random?type=${type}`,
                 {
                     headers: {
@@ -30,7 +34,7 @@ const Featured = ({type}) => {
             {type && (
                     <div className="category">
                         <span>{type==="movie" ? "Movies" : "Series"}</span>
-                        <select name="genre" id="genre">
+                        <select name="genre" id="genre" onChange={e => setGenre(e.target.value)}>
                             <option>Genre</option>
                             <option value="adventure">Adventure</option>
                             <option value="comedy">Comedy</option>
@@ -48,7 +52,7 @@ const Featured = ({type}) => {
                     </div>
                 )
             }
-            <img src={content.img} alt="" />
+            <img src={poster} alt="" />
             <div className="info">
                 {/* <img src="https://timelinecovers.pro/facebook-cover/download/tv-show-sherlock-facebook-cover.jpg" alt="" /> */}
                 <span className="description">

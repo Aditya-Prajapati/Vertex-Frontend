@@ -5,7 +5,7 @@ import "./home.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const Home = ({type}) => {
+const Home = ({ type }) => {
     const [lists, setLists] = useState([]);
     const [genre, setGenre] = useState(null);
 
@@ -15,7 +15,7 @@ const Home = ({type}) => {
                 const res = await axios.get(`${type ? `http://localhost:8000/api/lists${type && "?type=" + type}&${genre && "?genre=" + genre}` : `http://localhost:8000/api/lists` } `,
                     {
                         headers: {
-                            token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0YTAwZjdlNjdjZDU1Mjg1ZjJjOGM1OSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4ODI5OTU5MiwiZXhwIjoxNjg4NzMxNTkyfQ.tZD2X_xyxWPQCHPcYP0mcpgFsQOFrtcpMRTBYcTsBKw"
+                            token: `Bearer ${JSON.parse(localStorage.getItem("user")).accessToken}`
                         }
                     }
                 );
@@ -31,7 +31,7 @@ const Home = ({type}) => {
     return (
         <div className="home">
             <Navbar />
-            <Featured type={type} />
+            <Featured type={type} setGenre={setGenre} />
             {lists.map((list, index) => {
                 return <List key={index} list={list} />
             })}
