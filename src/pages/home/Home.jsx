@@ -12,7 +12,7 @@ const Home = ({ type }) => {
     useEffect(() => {
         const getRandomLists = async () => {
             try{
-                const res = await axios.get(`${type ? `http://localhost:8000/api/lists${type && "?type=" + type}&${genre && "?genre=" + genre}` : `http://localhost:8000/api/lists` } `,
+                const res = await axios.get(`${type ? `http://localhost:8000/api/lists${type && "?type=" + type}${genre ? "&genre=" + genre : ""}` : `http://localhost:8000/api/lists` } `,
                     {
                         headers: {
                             token: `Bearer ${JSON.parse(localStorage.getItem("user")).accessToken}`

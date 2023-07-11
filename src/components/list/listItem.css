@@ -83,3 +83,11 @@
     font-weight: 600;
     color: gray;
 }
+
+.listItem .itemTitle{
+    position: absolute;
+    bottom: 5px;
+    margin-left: 5px;
+    font-size: 14px;
+    font-weight: 500;
+}

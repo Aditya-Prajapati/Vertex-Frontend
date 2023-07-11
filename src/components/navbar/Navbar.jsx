@@ -22,18 +22,18 @@ const Navbar = () => {
                     <Link to="/" className="link"> <span>Home</span> </Link>
                     <Link to="/movies" className="link"> <span className="navbarMainLinks">Movies</span> </Link>
                     <Link to="/series" className="link"> <span className="navbarMainLinks">Series</span> </Link>
-                    <Link to="/" className="link"> <span>New and Popular</span> </Link>
-                    <Link to="/" className="link"> <span>My List</span> </Link>
+                    {/* <Link to="/" className="link"> <span>New and Popular</span> </Link>
+                    <Link to="/" className="link"> <span>My List</span> </Link> */}
                 </div>
                 <div className="right">
-                    <Search className="icon" />
-                    <span>USER</span>
-                    <Notifications className="icon" />
-                    <img src="#" alt="user" width="50px" height="50px" />
+                    {/* <Search className="icon" /> */}
+                    {/* <span>USER</span> */}
+                    {/* <Notifications className="icon" /> */}
+                    {/* <img src="#" alt="user" width="50px" height="50px" /> */}
                     <div className="profile">
                         <ArrowDropDown className="icon" />
                         <div className="options">
-                            <span>Settings</span>
+                            {/* <span>Settings</span> */}
                             <span onClick={() => dispatch(logout())}>Logout</span>
                         </div>
                     </div>
