@@ -1,7 +1,12 @@
 .login{
+    display: flex;
+    justify-content: center;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%), url("https://i0.wp.com/www.smartprix.com/bytes/wp-content/uploads/2022/11/netflix-india.jpeg?ssl=1");
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%), url("../../images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     position: relative;
 }
 
@@ -10,6 +15,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.login .top .wrapper .logoContainer{
+    background-color: white;
+    border-radius: 12px;
+    margin-right: 10px;
 }
 
 .login .container{
@@ -47,12 +58,13 @@
 .login .container form button{
     height: 40px;
     border-radius: 5px;
-    background-color: red;
     color: white;
     border: none;
     font-size: 18px;
     font-weight: 500;
     cursor: pointer;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 }
 
 .login .container form span{
@@ -63,4 +75,11 @@
 .login .container form span strong{
     color: white;
     cursor: pointer;
+}
+
+@media (max-width: 500px){
+    .login .container form{
+        width: 70vw;
+        height: 50vh;
+    }
 }

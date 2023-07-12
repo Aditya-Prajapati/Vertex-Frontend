@@ -41,7 +41,7 @@ const ListItem = ({ index, item }) => {
             >
                 {!isHovered && 
                     <div className="itemTitle">
-                        <span>{movie.title}</span>
+                        <span>{movie.title.substring(0,32)}</span>
                     </div>
                 }
                 <img src={movie.img} alt="" />

@@ -25,6 +25,12 @@
     align-items: center;
 }
 
+.navbar .container .left .logoContainer{
+    background-color: white;
+    border-radius: 12px;
+    margin-right: 22px;
+}
+
 .navbar .container .left svg{
     margin-right: 40px;
 }
@@ -66,9 +72,6 @@
 }
 
 @media (max-width: 870px){
-    .navbar .container .left span{
-        display: none;
-    }
 
     .navbar .container .left span.navbarMainLinks{
         display: block;
@@ -76,7 +79,19 @@
 }
 
 @media (max-width: 500px){
-    .navbar .container .left .logo{
-        display: none;
+
+    .navbar .container .left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar .container .left .logoContainer img{
+        width: 70px;
+        padding-top: 2px;
+    }
+
+    .navbar .container .left span{
+        margin-right: 15px;
     }
 }

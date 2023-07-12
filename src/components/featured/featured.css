@@ -78,6 +78,20 @@
 }
 
 @media (max-width: 500px){
+    .featured .category span{
+        display: none;
+    }
+
+    .featured .category select{
+        width: 70px;
+        background-color: dimgray;
+        outline: none;
+        border: none;
+        border-radius: 6px;
+        margin-left: 0px;
+        padding: 4px;
+    }
+
     .featured .info .img{
         width: 60vw;
     }
