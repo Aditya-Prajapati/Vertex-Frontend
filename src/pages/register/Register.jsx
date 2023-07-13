@@ -19,7 +19,7 @@ const Register = () => {
         const password = passwordRef.current.value;
 
         try{
-            await axios.post("http://localhost:8000/api/auth/register", { email, password });
+            await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/register`, { email, password });
             navigate("/login");
         }
         catch(err){

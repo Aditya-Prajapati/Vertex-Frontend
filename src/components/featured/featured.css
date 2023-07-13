@@ -12,10 +12,12 @@
 }
 
 .featured .category select{
-    cursor: pointer;
-    background-color: var(--main-color);
-    color: white;
-    border: 1px solid white;
+    width: 70px;
+    background-color: white;
+    color: black;
+    border: none;
+    outline: none;
+    border-radius: 6px;
     margin-left: 20px;
     padding: 5px;
 }
@@ -83,11 +85,6 @@
     }
 
     .featured .category select{
-        width: 70px;
-        background-color: dimgray;
-        outline: none;
-        border: none;
-        border-radius: 6px;
         margin-left: 0px;
         padding: 4px;
     }
@@ -98,5 +95,9 @@
 
     .featured .info .description{
         width: 60vw;
+    }
+
+    .featured .info .buttons button{
+        padding: 8px 12px;
     }
 }

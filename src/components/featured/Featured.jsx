@@ -8,10 +8,9 @@ const Featured = ({ type, setGenre }) => {
     const [content, setContent] = useState({});
 
     useEffect(() => {
-        // "https://api.themoviedb.org/3/discover/movie?api_key=14e045010471145c477118e0503fb18b&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.deschttps://api.themoviedb.org/3/discover/movie?api_key=14e045010471145c477118e0503fb18b&include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc"
         const getRandomContent = async () => {
             try {
-                const res = await axios.get(`http://localhost:8000/api/movies/random?type=${type}`,
+                const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/movies/random?type=${type}`,
                     {
                         headers: {
                             token: `Bearer ${JSON.parse(localStorage.getItem("user")).accessToken}`
