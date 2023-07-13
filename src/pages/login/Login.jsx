@@ -31,11 +31,14 @@ const Login = () => {
                     <input type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} />
                     <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
                     <button className="loginButton" onClick={handleLogin}>Submit</button>
-                    <span>New to Netflix? <Link to="/register"> <strong>Sign up now.</strong> </Link> </span>
+                    <span>New to Vertex? <Link to="/register"> <strong>Sign up now.</strong> </Link> </span>
                 </form>
+            </div>
+            <div class="footer">
+                <Link to="https://vertexadminv1.vercel.app">Admin login</Link>
             </div>
         </div>
     )
 }
-
+ 
 export default Login;
