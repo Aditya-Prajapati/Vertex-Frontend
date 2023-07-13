@@ -32,7 +32,7 @@ const Featured = ({ type, setGenre }) => {
                 <div className="category">
                     <span>{type === "movie" ? "Movies" : "Series"}</span>
                     <select name="genre" id="genre" onChange={e => setGenre(e.target.value)}>
-                        <option value={null}>Genre</option>
+                        <option value="genre">Genre</option>
                         <option value="action">Action</option>
                         <option value="comedy">Comedy</option>
                         <option value="crime">Crime</option>
