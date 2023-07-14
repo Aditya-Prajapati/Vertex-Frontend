@@ -1,4 +1,4 @@
-.navbar{
+.navbar-top{
     background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
     color: white;
     font-size: 14px;
@@ -9,10 +9,11 @@
 }
 
 .scrolled{
-    background-color: var(--main-color);
+    background: none;
+    background-color: black;
 }
 
-.navbar .container{
+.navbar-top .top{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -20,52 +21,52 @@
     height: 70px;
 }
 
-.navbar .container .left{
+.navbar-top .top .left{
     display: flex;
     align-items: center;
 }
 
-.navbar .container .left .logoContainer{
+.navbar-top .top .left .logoContainer{
     background-color: white;
     border-radius: 12px;
     margin-right: 22px;
 }
 
-.navbar .container .left svg{
+.navbar-top .top .left svg{
     margin-right: 40px;
 }
 
-.navbar .container .left span{
+.navbar-top .top .left span{
     margin-right: 20px; 
     cursor: pointer;
 }
 
-.navbar .container .right{
+.navbar-top .top .right{
     display: flex;
     align-items: center;
 }
 
-.navbar .container .right img{
+.navbar-top .top .right img{
     cursor: pointer;
 }
 
-.navbar .container .right .icon{
+.navbar-top .top .right .icon{
     margin: 0 15px;
     cursor: pointer;
 }
 
-.navbar .container .right .profile .options{
+.navbar-top .top .right .profile .options{
     display: none;
     background-color: var(--main-color);
     border-radius: 5px;
 }
 
-.navbar .container .right .profile .options span{
+.navbar-top .top .right .profile .options span{
     cursor: pointer;
     padding: 10px;
 }
 
-.navbar .container .right .profile:hover .options {
+.navbar-top .top .right .profile:hover .options {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -73,25 +74,25 @@
 
 @media (max-width: 870px){
 
-    .navbar .container .left span.navbarMainLinks{
+    .navbar-top .top .left span.navbarMainLinks{
         display: block;
     }    
 }
 
 @media (max-width: 500px){
 
-    .navbar .container .left {
+    .navbar-top .top .left {
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .navbar .container .left .logoContainer img{
+    .navbar-top .top .left .logoContainer img{
         width: 70px;
         padding-top: 2px;
     }
 
-    .navbar .container .left span{
+    .navbar-top .top .left span{
         margin-right: 15px;
     }
 }

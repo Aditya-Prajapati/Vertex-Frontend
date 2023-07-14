@@ -1,43 +1,63 @@
 .list{
+    display: flex;
+    flex-direction: column;
     width: 100%;
     margin-top: 40px;
 }
 
 .list .listTitle{
-    color: white;
-    font-size: 20px;
+    color: whitesmoke;
+    border-bottom: 2px solid rgb(45,45,45);
+    width: fit-content;
+    font-size: 16px;
     font-weight: 500;
-    margin-left: 50px;
+    margin-left: 55px;
+    margin-bottom: 15px;
 }
 
-.list .wrapper{
+.list .listBody{
+    display: flex;
+}
+
+.list .listBody .wrapper{
     position: relative;
 }
 
-.list .wrapper .container{
+.list .listBody .wrapper .container{
     display: flex; 
-    width: max-content;
-    margin-top: 10px;
-    margin-left: 50px;
-    transition: all 0.8s ease;
+    padding: 0;
+    /* align-items: center; */
+    transition: all 0.6s ease;
 }
 
-.list .wrapper .sliderArrow{
+.list .listBody .left{
+    left: 15px;
+}
+
+.list .listBody .right{
+    right: 15px;
+}
+
+.list .listBody .sliderArrowContainer{
     width: 50px;
-    height: 100%;
-    background-color: rgb(22,22,22,0.5);
-    color: white;
-    cursor: pointer;
-    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     top: 0;
     bottom: 0;
     z-index: 3;
+    cursor: pointer;
 }
 
-.list .wrapper .left{
-    left: 0;
+.list .listBody .sliderArrowContainer .sliderArrow{
+    color: white;
+    cursor: pointer;
+    position: absolute;
 }
 
-.list .wrapper .right{
-    right: 0;
+.list .listBody .sliderArrowContainer svg{
+    border-radius: 50%;
+    padding: 6px;
+    background-color: black;
+    box-sizing: content-box;
 }

@@ -1,5 +1,6 @@
 .login{
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
     width: 100vw;
@@ -39,6 +40,7 @@
 }
 
 .login .container form{
+    box-sizing: content-box;
     width: 300px;
     height: 300px;
     padding: 30px;
@@ -70,9 +72,12 @@
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
 }
 
+.login .container form h1{
+    font-size: 32px;
+}
+
 .login .container form span{
     color: lightgray;
-
 }
 
 .login .container form span strong{

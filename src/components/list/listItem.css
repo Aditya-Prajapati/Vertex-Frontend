@@ -1,17 +1,19 @@
 .listItem{
-    width: 225px;
-    height: 120px;
+    width: 260px;
     background-color: var(--main-color);
-    margin-right: 5px;
+    margin-right: 8px;
     overflow: hidden;
     cursor: pointer;
     color: white;
-    -webkit-box-shadow: 4px 14px 13px -6px rgba(0, 0, 0, 1);
+    /* -webkit-box-shadow: 4px 14px 13px -6px rgba(0, 0, 0, 1);
     -moz-box-shadow: 4px 14px 13px -6px rgba(0, 0, 0, 1);
-    box-shadow: 4px 14px 13px -6px rgba(0, 0, 0, 1);
+    box-shadow: 4px 14px 13px -6px rgba(0, 0, 0, 1); */
+    /* border: 3px solid rgb(45,45,45); */
+    border-radius: 6px;
+    /* height: 100%; */
 }
 
-.listItem:hover{
+/* .listItem:hover{
     width: 325px;
     height: 300px;
     padding-bottom: 8px;
@@ -22,39 +24,47 @@
     -moz-box-shadow: 4px 14px 13px -6px rgba(0, 0, 0, 1);
     box-shadow: 4px 14px 13px -6px rgba(0, 0, 0, 1);
     z-index: 4;
-}
+} */
 
-.listItem:hover img{
+/* .listItem:hover img{
     height: 140px;
-}
+} */
 
-.listItem:hover video{
+/* .listItem:hover video{
     width: 100%;
     height: 140px;
     object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
+} */
+
+.listItem .container{
+    display: flex;
+    flex-direction: column;
 }
 
-.listItem img{
+.listItem .container:hover .itemTitle{
+    color: whitesmoke;
+}
+
+.listItem .container img{
     width: 100%;
-    height: 100%;
     object-fit: cover;
 }
 
-.listItem .itemInfo{
+.listItem .container .itemInfo{
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
 
-.listItem .itemInfo .icons{
+.listItem .container .itemInfo .icons{
     display: flex;
     margin-bottom: 10px;
 }
 
-.listItem .itemInfo .icons .icon{
+.listItem .container .itemInfo .icons .icon{
     border: 2px solid white;
     padding: 5px;
     border-radius: 50%;
@@ -62,7 +72,7 @@
     font-size: 14px;
 }
 
-.listItem .itemInfo .itemInfoTop{
+.listItem .container .itemInfo .itemInfoTop{
     display: flex;
     align-items: center;
     margin-bottom: 10px;
@@ -72,27 +82,28 @@
     color: gray;
 }
 
-.listItem .itemInfo .itemInfoTop .ageLimit{
+.listItem .container .itemInfo .itemInfoTop .ageLimit{
     border: 1px solid gray;
     padding: 1px 3px;
     margin: 0 10px;
 }
 
-.listItem .itemInfo .description{
+.listItem .container .itemInfo .description{
     font-size: 13px;
     margin-bottom: 10px;
 }
 
-.listItem .itemInfo .genre{
+.listItem .container .itemInfo .genre{
     font-size: 14px;
     font-weight: 600;
     color: gray;
 }
 
-.listItem .itemTitle{
-    position: absolute;
-    bottom: 5px;
-    margin-left: 5px;
+.listItem .container .itemTitle{
+    padding: 10px;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
+    color: dimgray;
+    text-align: center;
+    vertical-align: middle;
 }
