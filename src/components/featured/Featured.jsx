@@ -63,8 +63,8 @@ const Featured = ({ type, setGenre }) => {
                         </button>
                     </Link>
                     {/* <button className="more"> */}
-                        {/* <InfoOutlined /> */}
-                        {/* <span>Info</span> */}
+                    {/* <InfoOutlined /> */}
+                    {/* <span>Info</span> */}
                     {/* </button> */}
                 </div>
             </div>

@@ -32,7 +32,7 @@ const ListItem = ({ index, item }) => {
 
     return (
         // first Link -> to go to watch page with movie -> state={{ movie: movie }}
-        <Link to={movie.trailer} style={{ textDecoration: "none" }}> 
+        <Link to={"./movie"} style={{ textDecoration: "none" }} state={{ movie: movie }}> 
             <div
                 className="listItem"
                 onMouseEnter={() => setIsHovered(true)}
