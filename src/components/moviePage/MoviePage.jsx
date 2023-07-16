@@ -12,13 +12,16 @@ const MoviePage = () => {
             <img src={movie.img} alt="" />
             <div className="info">
                 <div className="content">
-                    <span className="title">
+                    <h1 className="title">
                         <strong>{movie.title}</strong>
-                    </span>
+                    </h1>
                 </div>
                 <div className="content">
                     <span className="duration">
                         <strong>{movie.duration}</strong>
+                    </span>
+                    <span className="genre" style={{ marginLeft: movie.genre ? "0px" :  "20px" }}>
+                        <strong>{movie.genre[0].toUpperCase() + movie.genre.slice(1)}</strong>
                     </span>
                 </div>
                 <div className="content">

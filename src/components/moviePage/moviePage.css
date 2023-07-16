@@ -37,7 +37,7 @@
 
 .moviePage .info .buttons .play{
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    background-color: rgb(255,255,255,0.6);
+    background-color: rgb(255,255,255,0.5);
     border: 2px solid white;
     color: var(--main-color);
     margin-left: 10px;

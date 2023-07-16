@@ -6,21 +6,24 @@ import { useRef, useState } from "react";
 const List = ({ list }) => {
     const [slideNumber, setSlideNumber] = useState(0);
     const [isMoved, setIsMoved] = useState(false);
-    const [clickLimit, setClickLimit] = useState(window.innerWidth / 260); // 260 -> listItem width
+    // innerwidth - width of the browser's viewport
+    const [clickLimit, setClickLimit] = useState(window.innerWidth / (260+8)); // 260 -> listItem width
     const listRef = useRef();
 
     const handleClick = (direction) => {
         setIsMoved(true);
-        let distance = listRef.current.getBoundingClientRect().x - 55; // to get distance from the left of the screen 
-        // console.log(distance); 
+        const listItemWidth = 260; // Width of each list item
+        const listItemMargin = 8; // Right margin of each list item
+        const marginLeftInitial = 55; // Initial left margin of the list
+        const distance = listRef.current.getBoundingClientRect().x - marginLeftInitial;
 
         if (direction === "left" && slideNumber > 0) {
             setSlideNumber(slideNumber - 1);
-            listRef.current.style.transform = `translateX(${260 + distance}px)`;
+            listRef.current.style.transform = `translateX(${distance + listItemWidth + listItemMargin}px)`;
         }
         if (direction === "right" && slideNumber < 10 - clickLimit) {
             setSlideNumber(slideNumber + 1);
-            listRef.current.style.transform = `translateX(${-260 + distance}px)`;
+            listRef.current.style.transform = `translateX(${distance - listItemWidth - listItemMargin}px)`;
         }
     }
 
