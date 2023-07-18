@@ -51,11 +51,12 @@
 }
 
 .featured .carousel .carousel-inner .carousel-item .info {
-    width: 40%;
+    width: 80%;
     position: absolute;
     left: 50px;
     bottom: 100px;
     color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .featured .carousel .carousel-inner .carousel-item .info .buttons {

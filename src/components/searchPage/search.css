@@ -1,0 +1,73 @@
+.search{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    color: white;
+    padding-top: 90px;
+    padding-bottom: 10px;
+    background-color: black;
+}
+
+.search .searchTitle{
+    color: whitesmoke;
+    border-bottom: 2px solid rgb(45,45,45);
+    width: fit-content;
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 55px;
+    margin-bottom: 15px;
+}
+
+.search .searchBody{
+    display: flex;
+    justify-content: center;
+}
+
+.search .searchBody .wrapper{
+    position: relative;
+}
+
+.search .searchBody .wrapper .container{
+    display: flex; 
+    flex-wrap: wrap;
+    flex-basis: 20%;
+    padding: 0;
+    /* align-items: center; */
+    transition: all 0.6s ease;
+}
+
+.search .searchBody .wrapper .container .searchItem{
+    margin: 10px;
+}
+
+.search .searchBody .left{
+    left: 15px;
+}
+
+.search .searchBody .right{
+    right: 15px;
+}
+
+.search .searchBody .sliderArrowContainer{
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.search .searchBody .sliderArrowContainer .sliderArrow{
+    color: white;
+    cursor: pointer;
+    position: absolute;
+}
+
+.search .searchBody .sliderArrowContainer svg{
+    border-radius: 50%;
+    padding: 6px;
+    background-color: black;
+    box-sizing: content-box;
+}

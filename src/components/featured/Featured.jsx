@@ -58,9 +58,9 @@ const Featured = ({ type, setGenre }) => {
                         <img src={content[0].img} alt="" />
                         {/* <img src="https://timelinecovers.pro/facebook-cover/download/tv-show-sherlock-facebook-cover.jpg" alt="" /> */}
                         <div className="info">
-                            <span className="description">
+                            <h1 className="description">
                                 <strong>{content[0].title}</strong>
-                            </span>
+                            </h1>
                             <div className="buttons">
                                 <Link to="/watch" style={{ textDecoration: "none" }} state={{ movie: content[0] }}>
                                     <button className="play"> 
@@ -81,9 +81,9 @@ const Featured = ({ type, setGenre }) => {
                         <img src={content[1].img} alt="" />
                         {/* <img src="https://timelinecovers.pro/facebook-cover/download/tv-show-sherlock-facebook-cover.jpg" alt="" /> */}
                         <div className="info">
-                            <span className="description">
+                            <h1 className="description">
                                 <strong>{content[1].title}</strong>
-                            </span>
+                            </h1>
                             <div className="buttons">
                                 <Link to="/watch" style={{ textDecoration: "none" }} state={{ movie: content[1] }}>
                                     <button className="play">
@@ -104,9 +104,9 @@ const Featured = ({ type, setGenre }) => {
                         <img src={content[2].img} alt="" />
                         {/* <img src="https://timelinecovers.pro/facebook-cover/download/tv-show-sherlock-facebook-cover.jpg" alt="" /> */}
                         <div className="info">
-                            <span className="description">
+                            <h1 className="description">
                                 <strong>{content[2].title}</strong>
-                            </span>
+                            </h1>
                             <div className="buttons">
                                 <Link to="/watch" style={{ textDecoration: "none" }} state={{ movie: content[2] }}>
                                     <button className="play">

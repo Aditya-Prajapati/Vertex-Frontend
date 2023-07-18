@@ -1,18 +1,27 @@
 import { ArrowDropDown, Notifications, Search } from "@mui/icons-material";
 import "./navbar.css";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { logout } from "../../context/authContext/AuthActions";
 import logo from "../../images/cover.png";
 
 const Navbar = () => {
+    const navigate = useNavigate();
     const [isScrolled, setIsScrolled] = useState(false);
+    const [searchText, setSearchText] = useState("");
     const { dispatch } = useContext(AuthContext);
 
     window.onscroll = () => {
         setIsScrolled(window.pageYOffset === 0 ? false : true);
         return () => { window.onscroll = null };
+    }
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        const searchTextCopy = searchText;
+        setSearchText("");
+        navigate(`/search/${searchTextCopy}`);
     }
 
     return (
@@ -34,6 +43,12 @@ const Navbar = () => {
                     {/* <span>USER</span> */}
                     {/* <Notifications className="icon" /> */}
                     {/* <img src="#" alt="user" width="50px" height="50px" /> */}
+                    <form className="searchForm" onSubmit={handleSearch}>
+                        <button type="submit" className="searchBtn">
+                            <Search className="searchIcon" fontSize="small" />
+                        </button>
+                        <input type="text" placeholder="Search" onChange={e => setSearchText(e.target.value)}/>
+                    </form>
                     <div className="profile">
                         <ArrowDropDown className="icon" />
                         <div className="options">

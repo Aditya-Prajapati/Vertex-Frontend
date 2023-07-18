@@ -59,6 +59,31 @@
     align-items: center;
 }
 
+.navbar-top .top .right .searchForm{
+    display: flex;
+    align-items: center;
+}
+
+.navbar-top .top .right .searchForm .searchBtn{
+    /* margin-top: 4px; */
+    margin-right: 10px;
+    border: none;
+    background: none;
+    color: white;
+}
+
+/* .navbar-top .top .right .searchForm .searchIcon{
+    margin-top: 4px;
+    margin-right: 10px;
+} */
+
+.navbar-top .top .right .searchForm input{
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 10px;
+}
+
 .navbar-top .top .right img{
     cursor: pointer;
 }

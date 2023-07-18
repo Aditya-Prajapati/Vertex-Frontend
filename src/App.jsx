@@ -4,6 +4,7 @@ import Watch from "./pages/watch/Watch";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
 import MoviePage from "./components/moviePage/MoviePage";
+import Search from "./components/searchPage/Search";
 import Navbar from "./components/navbar/Navbar";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
@@ -25,6 +26,7 @@ const App = () => {
                         <Route path="/series" element={<Home type="series" />} />
                         <Route path="/movie" element={<MoviePage />} />
                         <Route path="/watch" element={<Watch />} />
+                        <Route path="/search/:query" element={<Search />} />
                     </>
                 )}
                 <Route path="*" element={<Navigate to="register" />} />
