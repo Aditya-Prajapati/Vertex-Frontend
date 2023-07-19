@@ -1,4 +1,5 @@
 import "./app.css";
+import React from "react";
 import Home from "./pages/home/Home";
 import Watch from "./pages/watch/Watch";
 import Register from "./pages/register/Register";
@@ -15,7 +16,6 @@ const App = () => {
 
     return (
         <>
-            <Navbar />
             <Routes>
                 <Route path="/register" element={!user ? <Register /> : <Navigate to="/" />} />
                 <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
@@ -31,6 +31,11 @@ const App = () => {
                 )}
                 <Route path="*" element={<Navigate to="register" />} />
             </Routes>
+            {user && (
+                <>
+                    <Navbar />
+                </>
+            )}
         </>
     )
 }

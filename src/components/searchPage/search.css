@@ -1,3 +1,8 @@
+.searchContainer{
+    height: 100vh;
+    background-color: black;
+}
+
 .search{
     display: flex;
     flex-direction: column;
@@ -32,6 +37,7 @@
     flex-wrap: wrap;
     flex-basis: 20%;
     padding: 0;
+    justify-content: center;
     /* align-items: center; */
     transition: all 0.6s ease;
 }

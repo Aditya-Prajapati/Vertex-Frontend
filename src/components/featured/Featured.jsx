@@ -52,9 +52,9 @@ const Featured = ({ type, setGenre }) => {
                 </div>
             )
             }
-            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-bs-pause="false">
-                <div class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="5000">
+            <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel" data-bs-pause="false">
+                <div className="carousel-inner">
+                    <div className="carousel-item active" data-bs-interval="5000">
                         <img src={content[0].img} alt="" />
                         {/* <img src="https://timelinecovers.pro/facebook-cover/download/tv-show-sherlock-facebook-cover.jpg" alt="" /> */}
                         <div className="info">
@@ -77,7 +77,7 @@ const Featured = ({ type, setGenre }) => {
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item" data-bs-interval="5000">
+                    <div className="carousel-item" data-bs-interval="5000">
                         <img src={content[1].img} alt="" />
                         {/* <img src="https://timelinecovers.pro/facebook-cover/download/tv-show-sherlock-facebook-cover.jpg" alt="" /> */}
                         <div className="info">
@@ -100,7 +100,7 @@ const Featured = ({ type, setGenre }) => {
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item" data-bs-interval="5000">
+                    <div className="carousel-item" data-bs-interval="5000">
                         <img src={content[2].img} alt="" />
                         {/* <img src="https://timelinecovers.pro/facebook-cover/download/tv-show-sherlock-facebook-cover.jpg" alt="" /> */}
                         <div className="info">
@@ -124,13 +124,13 @@ const Featured = ({ type, setGenre }) => {
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span className="visually-hidden">Next</span>
                 </button>
             </div>
         </div>

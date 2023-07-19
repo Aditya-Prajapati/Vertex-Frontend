@@ -6,7 +6,7 @@ import "./moviePage.css";
 const MoviePage = () => {
     const location = useLocation();
     const movie = location.state.movie;
-    console.log(movie, "hello");
+    window.scrollTo(0, 0);
 
     return (
         <div className="moviePage">

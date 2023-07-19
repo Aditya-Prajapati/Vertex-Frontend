@@ -10,6 +10,7 @@
 .watch .imgContainer {
     position: relative;
     display: inline-block;
+    width: 100vw;
 }
 
 .watch .imgContainer::after {
@@ -23,6 +24,11 @@
     background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.6342786260011817) 60%, rgba(0, 0, 0, 0) 100%);
     pointer-events: none;
     mix-blend-mode: multiply;
+}
+
+.watch .imgContainer img{
+    width: 100%;
+    object-fit: cover;
 }
 
 .watch .frame {

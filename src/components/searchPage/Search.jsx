@@ -27,22 +27,24 @@ const Search = () => {
     }, [query])
 
     return (
-        <div className="search">
-            <span className="searchTitle">{"Search for - " + query}</span>
-            {list.length !== 0 ?
-                <div className="searchBody">
-                    <div className="wrapper">
-                        <div className="container">
-                            {list.map((listItem, key) => {
-                                return <SearchItem className="searchItem" key={key} movie={listItem} />
-                            })}
+        <div className="searchContainer">
+            <div className="search">
+                <span className="searchTitle">{"Search for - " + query}</span>
+                {list.length !== 0 ?
+                    <div className="searchBody">
+                        <div className="wrapper">
+                            <div className="container">
+                                {list.map((listItem, key) => {
+                                    return <SearchItem className="searchItem" key={key} movie={listItem} />
+                                })}
+                            </div>
                         </div>
+                    </div> :
+                    <div className="searchBody" style={{ height: "100vh" }}>
+                        <h1>Not found</h1>
                     </div>
-                </div> :
-                <div className="searchBody" style={{ height: "100vh" }}>
-                    <h1>Not found</h1>
-                </div>
-            }
+                }
+            </div>
         </div>
     )
 }
