@@ -61,7 +61,7 @@ const Navbar = () => {
                         {(showNavbar || hamburgerClicked.isClicked || hamburgerClicked.index === 2) &&
                             <Link to="/series" className="link" onClick={() => setHamburgerClicked({ isClicked: false, index: 2 })}> <span className="navbarMainLinks">Series</span> </Link>
                         }
-                        {(hamburgerClicked.index === 4) &&
+                        {(!hamburgerClicked.isClicked && hamburgerClicked.index === 4) &&
                             <Link to="/search" className="link" onClick={() => setHamburgerClicked({ isClicked: false, index: 2 })}> <span className="navbarMainLinks">Search</span> </Link>
                         }
                     </div>
