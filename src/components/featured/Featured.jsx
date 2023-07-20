@@ -52,7 +52,7 @@ const Featured = ({ type, setGenre }) => {
                 </div>
             )
             }
-            <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel" data-bs-pause="false">
+            <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel" data-bs-pause="false" data-interval="5000">
                 <div className="carousel-inner">
                     <div className="carousel-item active" data-bs-interval="5000">
                         <img src={content[0].img} alt="" />
