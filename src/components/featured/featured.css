@@ -1,9 +1,12 @@
-.featured{
+.featured {
     height: 90vh;
+    overflow: hidden;
     position: relative;
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
 }
 
-.featured .category{
+.featured .category {
     position: absolute;
     top: 80px;
     left: 50px;
@@ -11,8 +14,8 @@
     align-items: center;
 }
 
-.featured .category select{
-    width: 70px;
+.featured .category select {
+    width: 80px;
     background-color: white;
     color: black;
     border: none;
@@ -22,32 +25,65 @@
     padding: 5px;
 }
 
-.featured .category span{
+.featured .category span {
     color: white;
     font-size: 30px;
 }
 
-.featured img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.featured .carousel .carousel-item {
+    transition: transform 0.5s ease-in-out;
 }
 
-.featured .info{
-    width: 35%;
+.featured .carousel .carousel-item.transition-effect {
+    transform: translateX(-100%);
+}
+
+.featured .carousel button{
+    width: 50px;
+}
+
+/* .featued .carousel .carousel-control-prev, .carousel-control-next{
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+
+.featued .carousel .carousel-control-prev-icon, .carousel-control-next-icon{
+    border-radius: 50%;
+    padding: 6px;
+    height: 20px !important;
+    background-color: black !important;
+    box-sizing: content-box;
+} */
+
+.featured img {
+    width: 100%;
+    height: 100%;
+    height: 90vh;
+    object-fit: cover;
+    box-shadow: 0px 8px 34px 10px rgba(45, 45, 45, 0.75);
+}
+
+.featured .carousel .carousel-inner .carousel-item .info {
+    width: 80%;
     position: absolute;
     left: 50px;
     bottom: 100px;
     color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.featured .info .buttons{
+.featured .carousel .carousel-inner .carousel-item .info .buttons {
     display: flex;
     margin: 20px 0;
 }
 
-.featured .info .buttons button{
-    padding: 10px 20px;
+.featured .carousel .carousel-inner .carousel-item .info .buttons button {
+    padding: 4px 8px;
     border: none;
     border-radius: 5px;
     display: flex;
@@ -59,45 +95,73 @@
     cursor: pointer;
 }
 
-.featured .info .buttons .play{
-    background-color: white;
+.featured .carousel .carousel-inner .carousel-item .info .buttons .play {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: rgb(255, 255, 255, 0.5);
+    border: 2px solid white;
     color: var(--main-color);
 }
 
-.featured .info .buttons .more{
-    background-color: var(--main-color);
+.featured .carousel .carousel-inner .carousel-item .info .buttons .more {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background-color: rgb(0, 0, 0, 0.5);
+    border: 2px solid rgb(45, 45, 45);
     color: white;
 }
 
-.featured .info .buttons span{
+.featured .carousel .carousel-inner .carousel-item .info .buttons span {
     margin-left: 5px;
 }
 
-@media (max-width: 870px){
-    .navbar .container .left span.navbarMainLinks{
-        display: block;
-    }    
+.featured .carousel .carousel-inner .carousel-item .info .buttons a{
+    width: fit-content;
 }
 
-@media (max-width: 500px){
-    .featured .category span{
+.featured .carousel .carousel-inner .carousel-item .info .buttons button{
+    width: fit-content;
+}
+
+@media (max-width: 870px) {
+    .navbar .container .left span.navbarMainLinks {
+        display: block;
+    }
+
+    .featured .carousel .carousel-inner .carousel-item .info{
+        width: 80%;
+    }
+}
+
+@media (max-width: 500px) {
+    .featured .category span {
         display: none;
     }
 
-    .featured .category select{
+    .featured .category select {
         margin-left: 0px;
         padding: 4px;
     }
 
-    .featured .info .img{
+    .featured .carousel .carousel-inner .carousel-item .info .img {
         width: 60vw;
     }
 
-    .featured .info .description{
+    .featured .carousel .carousel-inner .carousel-item .info .description {
         width: 60vw;
     }
 
-    .featured .info .buttons button{
-        padding: 8px 12px;
+    .featured .carousel .carousel-inner .carousel-item .info .buttons button {
+        margin-bottom: 10px;
+    }
+
+    .featured .carousel .carousel-inner .carousel-item .info .buttons .play{
+        padding: 4px 6px;
+    }
+
+    .featured .carousel .carousel-inner .carousel-item .info .buttons .more{
+        padding: 8px 10px;
+    }
+
+    .featured .carousel .carousel-inner .carousel-item .info .buttons{
+        flex-direction: column;
     }
 }

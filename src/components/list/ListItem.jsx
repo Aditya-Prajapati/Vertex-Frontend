@@ -32,44 +32,46 @@ const ListItem = ({ index, item }) => {
 
     return (
         // first Link -> to go to watch page with movie -> state={{ movie: movie }}
-        <Link to={movie.trailer}> 
+        <Link to={"./movie"} style={{ textDecoration: "none" }} state={{ movie: movie }}> 
             <div
                 className="listItem"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
-                style={{ left: isHovered ? (index * 225) : 0 }}
             >
-                {!isHovered && 
+                {/* {!isHovered && 
+                } */}
+                <div className="container">
+                    <img src={movie.img} alt="" />
                     <div className="itemTitle">
-                        <span>{movie.title.substring(0,32)}</span>
+                        <span>{movie.title}</span>
                     </div>
-                }
-                <img src={movie.img} alt="" />
-                {isHovered &&
-                    <>
-                        {/* <video src={movie.trailer} autoPlay muted loop /> */}
-                        <div className="itemInfo">
-                            <div className="icons">
-                                <PlayArrow className="icon" />
-                                <Add className="icon" />
-                                <ThumbUpAltOutlined className="icon" />
-                                <ThumbDownAltOutlined className="icon" />
-                            </div>
-                            <div className="itemInfoTop">
-                                <span>{movie.duration}</span>
-                                <span className="ageLimit">{movie.ageLimit}+</span>
-                                <span>{movie.year}</span>
-                            </div>
-                            <div className="description">
-                                {movie.description.substring(0, 90) + "..."}
-                            </div>
-                            <div className="genre">{movie.genre}</div>
-                        </div>
-                    </>
-                }
+                </div>
             </div>
         </Link>
     )
 }
 
 export default ListItem;
+
+// {isHovered &&
+//     <>
+//         {/* <video src={movie.trailer} autoPlay muted loop /> */}
+//         <div className="itemInfo">
+//             <div className="icons">
+//                 <PlayArrow className="icon" />
+//                 <Add className="icon" />
+//                 <ThumbUpAltOutlined className="icon" />
+//                 <ThumbDownAltOutlined className="icon" />
+//             </div>
+//             <div className="itemInfoTop">
+//                 <span>{movie.duration}</span>
+//                 <span className="ageLimit">{movie.ageLimit}+</span>
+//                 <span>{movie.year}</span>
+//             </div>
+//             <div className="description">
+//                 {movie.description.substring(0, 90) + "..."}
+//             </div>
+//             <div className="genre">{movie.genre}</div>
+//         </div>
+//     </>
+// }

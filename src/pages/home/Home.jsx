@@ -30,7 +30,6 @@ const Home = ({ type }) => {
 
     return (
         <div className="home">
-            <Navbar />
             <Featured type={type} setGenre={setGenre} />
             {lists.map((list, index) => {
                 return <List key={index} list={list} />

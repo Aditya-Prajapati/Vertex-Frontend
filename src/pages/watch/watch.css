@@ -1,10 +1,72 @@
 .watch {
     width: 100vw;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
 }
 
-.watch .back{
+.watch .imgContainer {
+    position: relative;
+    display: inline-block;
+    width: 100vw;
+    height: 100vh;
+}
+
+.watch .imgContainer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.6342786260011817) 60%, rgba(0, 0, 0, 0) 100%);
+    pointer-events: none;
+    mix-blend-mode: multiply;
+}
+
+.watch .imgContainer img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.watch .frame {
+    top: 150px;
+    z-index: 5;
+    width: 60vw;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.watch .frame .frameWrapper iframe {
+    border: 4px solid rgb(45,45,45,0.5);
+    border-radius: 10px;
+    width: 50vw;
+    height: 60vh;
+}
+
+/* .watch .frame .frameWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.watch .frame .frameWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+} */
+
+.watch .back {
     display: flex;
     width: 10%;
     align-items: center;
@@ -17,8 +79,18 @@
     z-index: 2;
 }
 
-.watch .video{
+.watch .video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+@media (max-width: 870px){
+    .watch .frame{
+        width: 80vw;
+    }
+
+    .watch .frame .frameWrapper iframe{
+        width: 80vw;
+    }
 }

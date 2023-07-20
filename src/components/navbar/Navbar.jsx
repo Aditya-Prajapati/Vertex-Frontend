@@ -1,49 +1,100 @@
 import { ArrowDropDown, Notifications, Search } from "@mui/icons-material";
 import "./navbar.css";
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useRef, useState } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { logout } from "../../context/authContext/AuthActions";
 import logo from "../../images/cover.png";
+import { useMediaQuery } from "react-responsive";
 
 const Navbar = () => {
+    const showNavbar = useMediaQuery({ query: "(min-width: 701px)" });
+
+    const navigate = useNavigate();
     const [isScrolled, setIsScrolled] = useState(false);
+    const [searchText, setSearchText] = useState("");
+    const [searchClicked, setSearchClicked] = useState(false);
+    const [hamburgerClicked, setHamburgerClicked] = useState({ isClicked: false, index: 0 });
     const { dispatch } = useContext(AuthContext);
+    const searchInputRef = useRef(null);
 
     window.onscroll = () => {
         setIsScrolled(window.pageYOffset === 0 ? false : true);
         return () => { window.onscroll = null };
     }
 
+    useEffect(() => {
+        if (searchClicked) {
+            searchInputRef.current.focus();
+        }
+    }, [searchClicked]);
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        setSearchClicked(false);
+        setHamburgerClicked({ isClicked: false, index: 4 });
+        const searchTextCopy = searchText;
+        setSearchText("");
+        navigate(`/search/${searchTextCopy}`);
+    }
+
+    console.log(hamburgerClicked);
     return (
-        <div className={isScrolled ? "navbar scrolled" : "navbar"}>
-            <div className="container">
-                <div className="left">
-                    {/* <svg className="logo" xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 0 300 81.387" id="netflix"><path fill="#b81d24" d="M256.09 76.212c4.178.405 8.354.84 12.52 1.29l9.198-22.712 8.743 24.807c4.486.562 8.97 1.152 13.44 1.768l-15.328-43.501L299.996 0H287.01l-.135.186-8.283 20.455L271.32.003h-12.822l13.237 37.565-15.644 38.644zM246.393 75.322V0h-12.817v74.265c4.275.33 8.552.684 12.817 1.056M150.113 71.11c3.46 0 6.916.026 10.366.054V43.492h15.397V31.708H160.48v-19.91h17.733V0h-30.6v71.12c.831 0 1.666-.013 2.5-.01M110.319 71.83c4.27-.152 8.544-.28 12.824-.384V11.8h11.98V.003H98.339V11.8h11.982v60.03h-.002zM12.295 79.772V34.897L27.471 77.96c4.667-.524 9.341-1.017 14.028-1.483V.001H29.201v46.483L12.825.001H0v81.384h.077c4.063-.562 8.14-1.096 12.218-1.613M85.98 11.797V.001H55.377V75.202a1100.584 1100.584 0 0 1 30.578-2.211V61.184c-5.916.344-11.82.74-17.71 1.181V43.497h15.397V31.706H68.245V11.797H85.98zM203.614 60.62V-.003h-12.873v71.876c10.24.376 20.44.9 30.606 1.56V61.619c-5.9-.381-11.81-.712-17.733-1"></path></svg> */}
-                    <div className="logoContainer">
-                        <img className="logo" width="90px" src={logo} alt="logo" />
+        <>
+            <div className={`hamburger ${hamburgerClicked.isClicked ? "hamburgerActive" : ""}`} onClick={() => setHamburgerClicked((prevState) => ({ ...prevState, isClicked: !hamburgerClicked.isClicked }))}>;
+                <span className="bar"></span>
+                <span className="bar"></span>
+                <span className="bar"></span>
+            </div>
+            <div className={`${isScrolled ? "navbar-top scrolled" : "navbar-top"} ${hamburgerClicked.isClicked ? "navbarActive" : ""}`}>
+                <div className="top">
+                    <div className="left">
+                        <div className="logoContainer">
+                            <img className="logo" width="90px" src={logo} alt="logo" />
+                        </div>
+                        {(showNavbar || hamburgerClicked.isClicked || hamburgerClicked.index === 0) &&
+                            <Link to="/" className="link" onClick={() => setHamburgerClicked({ isClicked: false, index: 0 })}> <span>Home</span> </Link>
+                        }
+                        {(showNavbar || hamburgerClicked.isClicked || hamburgerClicked.index === 1) &&
+                            <Link to="/movies" className="link" onClick={() => setHamburgerClicked({ isClicked: false, index: 1 })}> <span className="navbarMainLinks">Movies</span> </Link>
+                        }
+                        {(showNavbar || hamburgerClicked.isClicked || hamburgerClicked.index === 2) &&
+                            <Link to="/series" className="link" onClick={() => setHamburgerClicked({ isClicked: false, index: 2 })}> <span className="navbarMainLinks">Series</span> </Link>
+                        }
+                        {(!hamburgerClicked.isClicked && hamburgerClicked.index === 4) &&
+                            <Link to="/search" className="link" onClick={() => setHamburgerClicked({ isClicked: false, index: 2 })}> <span className="navbarMainLinks">Search</span> </Link>
+                        }
                     </div>
-                    <Link to="/" className="link"> <span>Home</span> </Link>
-                    <Link to="/movies" className="link"> <span className="navbarMainLinks">Movies</span> </Link>
-                    <Link to="/series" className="link"> <span className="navbarMainLinks">Series</span> </Link>
-                    {/* <Link to="/" className="link"> <span>New and Popular</span> </Link>
-                    <Link to="/" className="link"> <span>My List</span> </Link> */}
-                </div>
-                <div className="right">
-                    {/* <Search className="icon" /> */}
-                    {/* <span>USER</span> */}
-                    {/* <Notifications className="icon" /> */}
-                    {/* <img src="#" alt="user" width="50px" height="50px" /> */}
-                    <div className="profile">
-                        <ArrowDropDown className="icon" />
-                        <div className="options">
-                            {/* <span>Settings</span> */}
-                            <span onClick={() => dispatch(logout())}>Logout</span>
+                    <div className="right">
+                        {/* <Search className="icon" /> */}
+                        {/* <span>USER</span> */}
+                        {/* <Notifications className="icon" /> */}
+                        {/* <img src="#" alt="user" width="50px" height="50px" /> */}
+                        <form className="searchForm" onSubmit={handleSearch}>
+                            <div type="text" className="searchBtn" onClick={() => setSearchClicked((prevState) => !prevState)}>
+                                <Search className="searchIcon" fontSize="small" />
+                            </div>
+                            <input
+                                ref={searchInputRef}
+                                type="text"
+                                placeholder="Search"
+                                className={searchClicked ? "searchClicked" : ""}
+                                value={searchText}
+                                onChange={e => setSearchText(e.target.value)}
+                                style={{ display: ((!hamburgerClicked.isClicked && !showNavbar) && "none") }}
+                            />
+                        </form>
+                        <div className="profile">
+                            <ArrowDropDown className="icon" />
+                            <div className="options">
+                                {/* <span>Settings</span> */}
+                                <span onClick={() => dispatch(logout())}>Logout</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

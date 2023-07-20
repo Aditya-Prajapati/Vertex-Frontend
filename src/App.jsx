@@ -1,29 +1,42 @@
 import "./app.css";
+import React from "react";
 import Home from "./pages/home/Home";
 import Watch from "./pages/watch/Watch";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
-import {Routes, Route, Navigate} from "react-router-dom";
+import MoviePage from "./components/moviePage/MoviePage";
+import Search from "./components/searchPage/Search";
+import Navbar from "./components/navbar/Navbar";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
 
 const App = () => {
     const { user } = useContext(AuthContext);
 
-    return(
-        <Routes>
-            <Route path="/register" element={!user ? <Register /> : <Navigate to="/" />}/>
-            <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />}/>
-            <Route exact path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+    return (
+        <>
+            <Routes>
+                <Route path="/register" element={!user ? <Register /> : <Navigate to="/" />} />
+                <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
+                <Route exact path="/" element={user ? <Home /> : <Navigate to="/login" />} />
+                {user && (
+                    <>
+                        <Route path="/movies" element={<Home type="movie" />} />
+                        <Route path="/series" element={<Home type="series" />} />
+                        <Route path="/movie" element={<MoviePage />} />
+                        <Route path="/watch" element={<Watch />} />
+                        <Route path="/search/:query" element={<Search />} />
+                    </>
+                )}
+                <Route path="*" element={<Navigate to="register" />} />
+            </Routes>
             {user && (
                 <>
-                    <Route path="/movies" element={<Home type="movie" />}/>
-                    <Route path="/series" element={<Home type="series" />}/>
-                    <Route path="/watch" element={<Watch />}/>
+                    <Navbar />
                 </>
             )}
-            <Route path="*" element={<Navigate to="register" />} />
-        </Routes>
+        </>
     )
 }
 
