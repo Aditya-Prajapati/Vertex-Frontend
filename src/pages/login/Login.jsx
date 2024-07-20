@@ -35,9 +35,9 @@ const Login = () => {
                     <span>New to Vertex? <Link to="/register"> <strong>Sign up now.</strong> </Link> </span>
                 </form>
             </div>
-            <div class="footer"> 
+            {/* <div className="footer"> 
                 <Link to="https://vertexadminv1.vercel.app">Admin login</Link>
-            </div>
+            </div> */}
         </div>
     )
 }
